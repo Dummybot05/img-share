@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Image Upload</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color:#f1f1f1;
+}
+h1 {
+  text-align:center;
+}
+p {
+  text-align:center;
+}
+#ttt {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.uploaded-image {
+   width: 100%;
+   max-width: 300px;
+   height: auto;
+   margin: 10px;
+   border-radius: 5px;
+   background-color:#3f3f3f;
+}
+
+@media (min-width: 150px) {
+   .uploaded-image {
+      width: calc(33.33% - 20px);
+   }
+}
+
+form {
+   margin-top: 20px;
+   text-align: center;
+}
+
+input[type='file'] {
+   margin-right: 10px;
+   background-color:#e2e2e2;
+   padding:10px 10px;
+   border-radius: 4px;
+}
+
+input[type='submit'] {
+   background-color: #007BFF;
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   padding: 10px 20px;
+   cursor: pointer;
+   font-size: 16px;
+}          
+</style>
+</head>
+<body>
+<h1>IMG SHARE</h1>
+<p>Image will be deleted in 3 Days<br />Long press to download image</p>
+<form action='/profile' method='post' enctype='multipart/form-data'>
+<input type='file' name='imz' />
+<input type='submit' value='Done' />
+</form>
+<div id='ttt'>
+<% fila.forEach(item => { %>
+  <img src="<%= item %>" class='uploaded-image' />
+<% }) %>
+</div>
+</body>
+</html>
